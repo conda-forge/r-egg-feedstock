@@ -1,4 +1,4 @@
-{% set version = '0.2.0' %}
+{% set version = "0.4.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/egg_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/egg/egg_{{ version }}.tar.gz
-  sha256: b29c954739ce42ab498619ed9ae4c637400cc2ca70b39e23e5ef4f7597ed660e
+  sha256: b6dab7fdab4154f3877f55807a138f63d5941bff1ceb9e3b32bd34b9b920f187
 
 build:
   number: 0
