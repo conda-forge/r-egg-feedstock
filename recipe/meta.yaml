@@ -1,5 +1,4 @@
-{% set version = "0.4.0" %}
-
+{% set version = '0.4.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +9,13 @@ package:
 source:
   fn: egg_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/egg_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/egg/egg_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/egg_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/egg/egg_{{ version }}.tar.gz
   sha256: b6dab7fdab4154f3877f55807a138f63d5941bff1ceb9e3b32bd34b9b920f187
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -23,11 +23,12 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-ggplot2
     - r-gridextra >=2.3
     - r-gtable
-
   run:
     - r-base
     - r-ggplot2
@@ -36,7 +37,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('egg')"  # [not win]
+    - $R -e "library('egg')"           # [not win]
     - "\"%R%\" -e \"library('egg')\""  # [win]
 
 about:
@@ -44,7 +45,8 @@ about:
   license: GPL-3
   summary: Miscellaneous functions to help customise 'ggplot2' objects. High-level functions
     are provided to post-process 'ggplot2' layouts and allow alignment between plot
-    panels, as well as setting panel sizes to fixed values.
+    panels, as well as setting panel sizes to fixed values. Other functions include
+    a custom 'geom', and a helper function to enforce symmetric scales in facetted plots.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
   license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
@@ -56,3 +58,4 @@ extra:
     - daler
     - jdblischak
     - cbrueffer
+    - dbast
