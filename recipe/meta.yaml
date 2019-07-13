@@ -1,4 +1,4 @@
-{% set version = '0.4.2' %}
+{% set version = "0.4.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/egg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/egg/egg_{{ version }}.tar.gz
-  sha256: deda008e8aabce9bfbb50b725f390f28a50fb54962f5cc754d45760745461846
+  sha256: 15c8ba7cf2676eb0460de7e5dfbc89fc3175ac22a8869cfd44d66d156fd6c7bb
 
 build:
   merge_build_host: True  # [win]
