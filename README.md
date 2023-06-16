@@ -1,11 +1,11 @@
-About r-egg
-===========
+About r-egg-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-egg-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=egg
 
 Package license: GPL-3
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-egg-feedstock/blob/main/LICENSE.txt)
 
 Summary: Miscellaneous functions to help customise 'ggplot2' objects. High-level functions are provided to post-process 'ggplot2' layouts and allow alignment between plot panels, as well as setting panel sizes to fixed values. Other functions include a custom 'geom', and helper functions to enforce symmetric scales or add tags to facetted plots.
 
